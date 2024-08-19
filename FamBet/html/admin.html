@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to your global CSS file -->
+    <link rel="stylesheet" href="/css/admin.css"> <!-- Link to the admin-specific CSS file -->
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <img src="/img/logo.png" alt="Logo" class="logo" onclick="window.location.href='index.html'">
+        <div class="right">
+            <div class="balance-info">
+                <img src="/img/wl-icon.png" alt="WL Icon">
+                <span id="wl-balance">0</span>
+                <img src="/img/dl-icon.png" alt="DL Icon">
+                <span id="dl-balance">0</span>
+                <img src="/img/bgl-icon.png" alt="BGL Icon">
+                <span id="bgl-balance">0</span>
+            </div>
+            <div class="username" id="username"></div>
+            <button id="login-button" class="login" onclick="window.location.href='login.html'">Login</button>
+            <button id="logout-button" class="logout" onclick="logout()">Logout</button>
+            <button id="admin-button" class="hidden" onclick="window.location.href='admin.html'">Admin</button>
+        </div>
+    </header>
+
+    <!-- Admin Panel Content -->
+    <div class="container">
+        <h1>Admin Panel</h1>
+
+        <!-- Search User Form -->
+        <div id="search-user">
+            <h2>Search User</h2>
+            <input type="text" id="search-username" placeholder="Enter username">
+            <button id="search-button">Search</button>
+        </div>
+
+        <!-- User Info and Balance Form -->
+        <div id="user-info" style="display: none;">
+            <h2>User Info</h2>
+            <p>Username: <span id="user-name"></span></p>
+            <p>WL Balance: <span id="user-wl"></span></p>
+            <p>DL Balance: <span id="user-dl"></span></p>
+            <p>BGL Balance: <span id="user-bgl"></span></p>
+
+            <h3>Update Balances</h3>
+            <label for="update-wl">WL:</label>
+            <input type="number" id="update-wl" placeholder="New WL amount"><br>
+            <label for="update-dl">DL:</label>
+            <input type="number" id="update-dl" placeholder="New DL amount"><br>
+            <label for="update-bgl">BGL:</label>
+            <input type="number" id="update-bgl" placeholder="New BGL amount"><br>
+            <button id="update-button">Update Balances</button>
+        </div>
+
+        <div id="status" style="margin-top: 20px;"></div>
+    </div>
+
+    <script src="/js/header.js"></script> <!-- Include header JS for balance updates -->
+    <script src="/js/admin.js"></script> <!-- Include admin JS for search and update functionality -->
+</body>
+</html>

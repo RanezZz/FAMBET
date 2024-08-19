@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mines Game</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to your global CSS file -->
+    <link rel="stylesheet" href="/css/game2.css"> <!-- Link to the specific game CSS file -->
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <img src="/img/logo.png" alt="Logo" class="logo" onclick="window.location.href='index.html'">
+        <div class="right">
+            <div class="balance-info">
+                <img src="/img/wl-icon.png" alt="WL Icon">
+                <span id="wl-balance">0</span>
+                <img src="/img/dl-icon.png" alt="DL Icon">
+                <span id="dl-balance">0</span>
+                <img src="/img/bgl-icon.png" alt="BGL Icon">
+                <span id="bgl-balance">0</span>
+            </div>
+            <div class="username" id="username"></div>
+            <button id="login-button" class="login" onclick="window.location.href='login.html'">Login</button>
+            <button id="logout-button" class="logout" onclick="logout()">Logout</button>
+            <button id="admin-button" class="hidden" onclick="window.location.href='admin.html'">Admin</button>
+        </div>
+    </header>
+
+    <!-- Game Content -->
+    <div class="container">
+        <h1>FAM Sweeper</h1>
+        <div id="info-box">
+            <div id="current-multiplier">Multiplier: 1x</div>
+            <div id="potential-cashout">Potential Cashout: 0.00</div>
+        </div>
+        <div id="controls">
+            <!-- Currency Selection -->
+            <label for="currency-select">Choose currency:</label>
+            <select id="currency-select">
+                <option value="wl">WL</option>
+                <option value="dl">DL</option>
+                <option value="bgl">BGL</option>
+            </select>
+
+            <!-- Bet Input -->
+            <input type="number" id="bet-input" placeholder="Enter bet amount" min="1">
+            <button id="bet-button">Place Bet</button>
+            <!-- New All In Button -->
+            <button id="all-in-button">All In</button>
+            <button id="cashout-button">Cash Out</button>
+
+            <!-- Mines Selection -->
+            <label for="mines-select">Choose number of mines:</label>
+            <select id="mines-select">
+                <!-- Option values from 1 to 24 -->
+                <script>
+                    for (let i = 1; i <= 24; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+        <div id="game-board" class="game-board"></div>
+        <div id="status"></div>
+    </div>
+
+
+  </div>
+    <script src="/js/header.js"></script> <!-- Include header JS for balance updates -->
+    <script src="/js/game2.js"></script> <!-- Include specific game JS -->
+<div id="live-broadcast" class="live-broadcast">
+  <h2>Live Broadcast</h2>
+  <ul id="broadcast-list"></ul>
+</div>
+
+<div id="game-container">
+    <div id="game-board"></div> <!-- This is where the game board cells will be generated -->
+    <!-- Other elements -->
+</div>
+
+
+
+
+
+  
+
+</body>
+</html>

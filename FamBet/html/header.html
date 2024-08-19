@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Casino</title>
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+        .header .logo {
+            width: 150px;
+            height: 50px;
+        }
+        .header .right {
+            display: flex;
+            align-items: center;
+        }
+        .header .right .balance-info {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .header .right .balance-info img {
+            width: 100px; /* Adjust as needed */
+            height: 100px; /* Adjust as needed */
+            margin-right: 8px;
+        }
+        .header .right .username {
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .header .right .login {
+            display: none;
+        }
+        .header .right .logout {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="/img/logo.png" alt="Logo" class="logo" onclick="window.location.href='index.html'">
+        <div class="right">
+            <div class="balance-info">
+                <img src="images/wl-icon.png" alt="WL Icon">
+                <span id="wl-balance">0</span>
+                <img src="images/dl-icon.png" alt="DL Icon">
+                <span id="dl-balance">0</span>
+                <img src="images/bgl-icon.png" alt="BGL Icon">
+                <span id="bgl-balance">0</span>
+            </div>
+            <div class="username" id="username"></div>
+            <button id="login-button" class="login" onclick="window.location.href='login.html'">Login</button>
+            <button id="logout-button" class="logout" onclick="logout()">Logout</button>
+        </div>
+    </header>
+    <script src="/js/header.js"></script>
+</body>
+</html>

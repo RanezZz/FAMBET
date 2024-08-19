@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Crypto Casino</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+        <div class="logo">
+            <a href="/html/index.html">
+                <img src="/img/logo.png" alt="Casino Logo" width="150" height="50">
+            </a>
+        </div>
+        <div class="auth-buttons" id="auth-buttons">
+            <!-- This section will be dynamically updated by JavaScript -->
+        </div>
+        <div class="balance" id="balance-box" style="display: none;">
+            <span id="balance-wl">WL: 0</span>
+            <span id="balance-dl">DL: 0</span>
+            <span id="balance-bgl">BGL: 0</span>
+        </div>
+    </header>
+
+    <!-- Profile Content -->
+    <div class="profile-container">
+        <h2>Profile Information</h2>
+        <p><strong>Username:</strong> <span id="profile-username"></span></p>
+        <p><strong>Email:</strong> <span id="profile-email"></span></p>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <div class="container">
+      <p id="user-info"></p>
+      <button id="admin-button" class="hidden" onclick="window.location.href='admin.html'">Go to Admin Page</button>
+  </div>
+  <script src="/js/profile.js"></script>
+
+    <script src="/js/scripts.js"></script>
+    <script>
+        // Display the logged-in user's information on the profile page
+        document.addEventListener('DOMContentLoaded', function () {
+            const username = localStorage.getItem('loggedInUser');
+            const email = localStorage.getItem('loggedInEmail');
+
+            if (username && email) {
+                document.getElementById('profile-username').textContent = username;
+                document.getElementById('profile-email').textContent = email;
+                updateBalance(); // Update balance on profile page as well
+            } else {
+                alert('You are not logged in.');
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .balance-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .balance-info img {
+            width: 24px; /* Adjust as needed */
+            height: 24px; /* Adjust as needed */
+            margin-right: 8px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Profile</h1>
+        <p id="user-info"></p>
+        <div class="balance-info">
+            <img src="/img/wl-icon.png" alt="WL Icon">
+            <span id="wl-balance"></span>
+            <img src="/img/dl-icon.png" alt="DL Icon">
+            <span id="dl-balance"></span>
+            <img src="/img/bgl-icon.png" alt="BGL Icon">
+            <span id="bgl-balance"></span>
+        </div>
+        <button onclick="logout()">Logout</button>
+        <button id="admin-button" class="hidden" onclick="window.location.href='admin.html'">Go to Admin Page</button>
+    </div>
+    <script src="/js/profile.js"></script>
+</body>
+</html>
